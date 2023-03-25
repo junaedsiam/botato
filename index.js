@@ -1,9 +1,7 @@
 // @ts-check
 import './env.js'
 import Discord from 'discord.js'
-import { prepareReply } from './utils.js'
-import { PREFIX } from './constant.js'
-import { getChukNorrisJoke } from './replies/index.js'
+import { prepareReply, isBotMentioned } from './utils.js'
 
 const client = new Discord.Client({
   intents: [
@@ -17,20 +15,17 @@ const client = new Discord.Client({
 client.login(process.env.BOT_TOKEN)
 
 client.on('messageCreate', async (message) => {
+  // console.log('message', message)
+  // console.log('mention', message.mentions.users)
   if(message.author.bot) {
     return 
   }
-  if(!message.content.startsWith(PREFIX)) {
-    return 
+  if (isBotMentioned(message)) {
+    message.reply('Thanks for calling me man!')
   }
-  if(message.content.indexOf('joke')!==-1) {
-    const joke = await getChukNorrisJoke()
-    message.reply(joke)
-    return
-  }
-  if(message.content.indexOf('name')!==-1) {
-    message.reply('My name is botato! Like potato, but bot!')
-    return
-  }
-  message.reply(prepareReply(message))
+
+  // message.reply(prepareReply(message))
+  /**
+   * Have to mention the bot, that you have!
+   */
 })

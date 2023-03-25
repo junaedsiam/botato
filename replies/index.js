@@ -1,1 +1,1 @@
-export * from './joke.js'
+export {}
