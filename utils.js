@@ -1,4 +1,5 @@
 //@ts-check
+// eslint-disable-next-line no-unused-vars
 import { Message } from 'discord.js'
 /**
  * 
@@ -27,7 +28,7 @@ export const isBotMentioned = (message) => {
   if (size > 1) {
     return false
   }
-  // if the bot is mentioned, mention users map will contain  Discord application id as map key
+  // if the bot is mentioned, mention users map will contain  Discord application id as map
   if (users.has(process.env.DISCORD_APPLICATION_ID || '')) {
     return true
   }

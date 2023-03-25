@@ -15,8 +15,6 @@ const client = new Discord.Client({
 client.login(process.env.BOT_TOKEN)
 
 client.on('messageCreate', async (message) => {
-  // console.log('message', message)
-  // console.log('mention', message.mentions.users)
   if(message.author.bot) {
     return 
   }
@@ -24,8 +22,4 @@ client.on('messageCreate', async (message) => {
     message.reply('Thanks for calling me man!')
   }
 
-  // message.reply(prepareReply(message))
-  /**
-   * Have to mention the bot, that you have!
-   */
 })
