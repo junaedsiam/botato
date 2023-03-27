@@ -32,3 +32,24 @@ export const isBotMentioned = (message) => {
   }
   return false;
 };
+
+/**
+ *
+ * @param {Message} message
+ * @returns {string}
+ */
+
+export const findBotName = (message) => {
+  const users = message?.mentions?.users;
+  let username = 'AwesomeBot';
+  if (
+    process.env?.DISCORD_APPLICATION_ID &&
+    users.has(process.env?.DISCORD_APPLICATION_ID)
+  ) {
+    const user = users.get(process.env.DISCORD_APPLICATION_ID);
+    if (user?.username) {
+      username = user.username;
+    }
+  }
+  return username;
+};
