@@ -16,6 +16,7 @@ export const prepareReply = (message) => {
  * @returns {boolean}
  */
 export const isBotMentioned = (message) => {
+  console.log(message);
   const size = message?.mentions?.users?.size;
   const users = message?.mentions?.users;
   // If size zero that means no mention is in message11
