@@ -12,6 +12,6 @@ client.on('messageCreate', async (message) => {
   }
   if (isBotMentioned(message)) {
     const engine = new ReplyEngine(message);
-    engine.reply();
+    await engine.reply();
   }
 });

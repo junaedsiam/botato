@@ -30,7 +30,7 @@ export class ReplyEngine {
     return `Hello there! I am your issue solver bot ${botName}. Currently I can help you searching through github issues.\nBut you have to write the message in a certain format.\nExample: **${botName} github: Maximum call stack size reached**`;
   }
 
-  reply() {
+  async reply() {
     if (!this.isValidFormat()) {
       return this.message.reply(this.getDefaultMessage());
     }
