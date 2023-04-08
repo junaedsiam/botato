@@ -18,7 +18,6 @@ export class ReplyEngine {
     }
     const [, ...rest] = content;
     content = rest.join(' ');
-    console.log(content.indexOf('github:'));
     if (content.indexOf('github:') === -1) {
       return false;
     }
