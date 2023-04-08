@@ -2,7 +2,7 @@
   "name": "botato",
   "version": "0.0.1",
   "description": "A discord bot to find github issues",
-  "main": "index.js",
+  "main": "app/index.js",
   "type": "module",
   "keywords": [
     "discord",
@@ -13,7 +13,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node",
-    "start": "node --experimental-modules --es-module-specifier-resolution=node index.js",
+    "start": "node --experimental-modules --es-module-specifier-resolution=node app/index.js",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint .",
