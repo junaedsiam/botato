@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-const API_ENDPOINT = 'https://api.github.com/search/issues?q=';
+const API_ENDPOINT = 'https://api.github.com/search/issues?q=is:issue ';
 
 /**
  *
@@ -12,8 +12,14 @@ const API_ENDPOINT = 'https://api.github.com/search/issues?q=';
  */
 export const getGithubIssues = async (issueTitle) => {
   try {
-    const response = await fetch(`${API_ENDPOINT}${issueTitle}&per_page=5`);
+    const response = await fetch(`${API_ENDPOINT}${issueTitle}&per_page=5`, {
+      headers: {
+        Authorization: `Bearer ${process.env.GIT_TOKEN}`,
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+    });
     const data = await response.json();
+    console.log(data);
     return data?.items || [];
   } catch (err) {
     console.log(err);
